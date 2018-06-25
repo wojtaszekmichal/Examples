@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <title>Spring Security Example </title>
+    <script th:src="@{/webjars/bootstrap/4.1.1/js/bootstrap.min.js}"></script>
+    <script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="offset-lg-1 offset-lg-5" th:if="${param.error}">
+        Invalid username and password.
+    </div>
+    <div class="offset-lg-1 offset-lg-5" th:if="${param.logout}">
+        You have been logged out.
+    </div>
+</div>
+
+<div class="container">
+    <form th:action="@{/login}" method="post">
+        <div class="form-group col-lg-4 offset-lg-4">
+            <div>
+                <label class="form-check-label" for="username"> User Name : </label>
+                <input id="username" class="form-control" type="text" name="username"/>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your username with anyone else.
+                </small>
+            </div>
+            <div>
+                <label class="form-check-label" for="password"> Password:</label>
+                <input id="password" class="form-control" type="password" name="password"/>
+            </div>
+            <button class="btn btn-primary col-lg-3 offset-lg-4" type="submit">Sign In</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
